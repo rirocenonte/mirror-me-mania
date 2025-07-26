@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Game-specific colors
+				'player-blue': 'hsl(var(--player-blue))',
+				'mirror-pink': 'hsl(var(--mirror-pink))',
+				'target-glow': 'hsl(var(--target-glow))',
+				'mirror-line': 'hsl(var(--mirror-line))',
+				'wall-color': 'hsl(var(--wall-color))',
+				'platform-color': 'hsl(var(--platform-color))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +91,49 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor'
+					},
+					'50%': {
+						boxShadow: '0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor'
+					}
+				},
+				'shake': {
+					'0%, 100%': { transform: 'translateX(0)' },
+					'25%': { transform: 'translateX(-2px)' },
+					'75%': { transform: 'translateX(2px)' }
+				},
+				'character-move': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.1)' },
+					'100%': { transform: 'scale(1)' }
+				},
+				'particle': {
+					'0%': { 
+						opacity: '1',
+						transform: 'translateY(0) scale(1)'
+					},
+					'100%': { 
+						opacity: '0',
+						transform: 'translateY(-20px) scale(0.5)'
+					}
+				},
+				'success': {
+					'0%': { transform: 'scale(1) rotate(0deg)' },
+					'50%': { transform: 'scale(1.2) rotate(5deg)' },
+					'100%': { transform: 'scale(1) rotate(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow': 'glow 2s ease-in-out infinite',
+				'shake': 'shake 0.5s ease-in-out',
+				'character-move': 'character-move 0.3s ease-out',
+				'particle': 'particle 1s ease-out forwards',
+				'success': 'success 0.6s ease-out'
 			}
 		}
 	},

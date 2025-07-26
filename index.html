@@ -2,23 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mirror-me-mania</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Mirror Me - Viral Puzzle Game</title>
+    <meta name="description" content="A mind-bending puzzle game where you control a character whose mirror reflection does the opposite! Can you get both to their targets?" />
+    <meta name="author" content="Mirror Me Game" />
+    <meta name="theme-color" content="#000000" />
+    
+    <!-- Mobile optimization -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mirror Me" />
+    
+    <!-- Prevent zooming and improve mobile experience -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Favicons and icons -->
+    <link rel="icon" type="image/svg+xml" href="/game-icon.svg" />
+    <link rel="icon" type="image/png" href="/game-icon-512.png" />
+    <link rel="apple-touch-icon" href="/game-icon-512.png" />
 
-    <meta property="og:title" content="mirror-me-mania" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <!-- Social sharing -->
+    <meta property="og:title" content="Mirror Me - Viral Puzzle Game" />
+    <meta property="og:description" content="A mind-bending puzzle game where you control a character whose mirror reflection does the opposite! Can you solve all levels?" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="Mirror Me - Viral Puzzle Game" />
+    <meta name="twitter:description" content="Can you master the mirror? A challenging puzzle game that will test your spatial thinking!" />
+    <meta name="twitter:image" content="/og-image.jpg" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
